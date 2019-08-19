@@ -16,7 +16,7 @@ class AddActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
-        var intent:Intent? = null
+        var intent = Intent()
         num1 = getIntent().getIntExtra("num1",0)
         num2 = getIntent().getIntExtra("num2",0)
         num3 = getIntent().getIntExtra("num3",0)

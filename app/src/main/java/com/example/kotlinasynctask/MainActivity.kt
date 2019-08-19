@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (requestCode == 1){
             if(resultCode == Activity.RESULT_OK){
                 if (data != null) {
-                    textView2.setText(data.getStringExtra("result"))
+                    calc_result = data.getStringExtra("result")
+                    //Log.i("hey",calc_result)
                 }
                     Log.i("hey",calc_result)
                     //textView2.text = calc_result
@@ -59,13 +60,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         override fun doInBackground(vararg p0: Void?): String {
             startActivityForResult(intent,1)
+            Thread.sleep(4000)
+            //calc_result = intent!!.getStringExtra("result")
+            Log.i("calc",calc_result)
             return calc_result
         }
 
         override fun onPostExecute(result: String?) {
             super.onPostExecute(result)
             pgBar.visibility = View.GONE
-            textView2.text = result
+            textView2.text = calc_result
         }
     }
 }
